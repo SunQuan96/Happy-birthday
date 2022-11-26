@@ -16,7 +16,7 @@
         <div id="content">
             <div id="code">
                 <span class="comments">亲爱的：</span><br />
-                <span class="comments">我将快乐的音符，作为礼物送给你</span><br />
+                <span class="comments">我将快乐的音符，作为礼物送给你!</span><br />
                 <span class="comments">愿您拥有365个美丽的日子，衷心地祝福你，生日快乐！</span><br /><br />
                 <span class="comments">在此诚挚地献上我的三个祝愿：</span><br />
                 <span class="comments">一愿你身体健康；二愿你幸福快乐；三愿你万事如意！</span><br /><br />
@@ -40,48 +40,43 @@
             </div>
         </div>
         <div id="copyright">
-            <center>
-                <link rel="stylesheet" href="./css/cuplayer.css">
-                <div style="position:absolute; top:50px; right:50px;">
-                    <audio id="main_audio" autoplay="autoplay" preload="auto" loop>
-                        <source src="./mp3/birthday.mp3" type="audio/mpeg" />
-                        <embed id="main_audio_ie8" hidden="true" autostart="true" height="0" width=0 loop="true"
-                            src="./mp3/birthday.mp3" autoplay="autoplay" />
-                    </audio>
-                    <a class="c-white fs-12 icon-play rotate" id="btn-play" href="javascript:void(0);"></a>
-                </div>
-                <script type="text/javascript">
-                    //获取picid函数
-                    $(function () {
-                        $("area").click(function () {
-                            var picId = $(this).attr("data-id");
-                            var picSrc = "images/img_big/" + picId + ".jpg"
-                            $(".modal-content>.pic-box>img").attr("src", picSrc);
-                        })
-                        var isPlaying = function (audio) {
-                            return !audio.paused;
-                        }
-                        var a = document.getElementById('main_audio');
-                        if (!(a.play instanceof Function)) {
-                            a = document.getElementById('main_audio_ie8');
-                            isPlaying = function (audio) {
-                                return audio.playState == 2;
-                            }
-                        }
-                        $('#btn-play').on('click', function () {
-                            if ($(this).hasClass('rotate')) {
-                                a.pause();
-                                $(this).removeClass('rotate');
-                            } else {
-                                a.play();
-                                $(this).addClass('rotate');
-                            }
-                        });
-
+            <link rel="stylesheet" href="./css/cuplayer.css">
+            <div style="position:absolute; top:50px; right:50px;">
+                <audio id="main_audio" autoplay="autoplay" preload="auto" controls="controls">
+                    <source src="./mp3/birthday.mp3" type="audio/mpeg" />
+                </audio>
+                <a class="c-white fs-12 icon-play rotate" id="btn-play" href="javascript:void(0);"></a>
+            </div>
+            <script type="text/javascript">
+                //获取picid函数
+                $(function () {
+                    $("area").click(function () {
+                        var picId = $(this).attr("data-id");
+                        var picSrc = "images/img_big/" + picId + ".jpg"
+                        $(".modal-content>.pic-box>img").attr("src", picSrc);
                     })
-                </script>
+                    // var isPlaying = function (audio) {
+                    //     return !audio.paused;
+                    // }
+                    // var a = document.getElementById('main_audio');
+                    // if (!(a.play instanceof Function)) {
+                    //     a = document.getElementById('main_audio_ie8');
+                    //     isPlaying = function (audio) {
+                    //         return audio.playState == 2;
+                    //     }
+                    // }
+                    $('#btn-play').on('click', function () {
+                        if ($(this).hasClass('rotate')) {
+                            a.pause();
+                            $(this).removeClass('rotate');
+                        } else {
+                            a.play();
+                            $(this).addClass('rotate');
+                        }
+                    });
 
-            </center>
+                })
+            </script>
         </div>
     </div>
     <script type="text/javascript">
